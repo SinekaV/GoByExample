@@ -1,0 +1,49 @@
+package main
+
+import (
+    "fmt"
+    "maps"
+)
+
+func main() {
+    // Create an empty map
+    m := make(map[string]int)
+
+    // Set key/value pairs
+    m["k1"] = 7
+    m["k2"] = 13
+    fmt.Println("map:", m) // Output: map: map[k1:7 k2:13]
+
+    // Get value for a key
+    v1 := m["k1"]
+    fmt.Println("v1:", v1) // Output: v1: 7
+
+    // Get value for a non-existent key
+    v3 := m["k3"]
+    fmt.Println("v3:", v3) // Output: v3: 0
+
+    // Length of the map
+    fmt.Println("len:", len(m)) // Output: len: 2
+
+    // Delete a key
+    delete(m, "k2")
+    fmt.Println("map:", m) // Output: map: map[k1:7]
+
+    // Clear the map
+    clear(m)
+    fmt.Println("map:", m) // Output: map: map[]
+
+    // Check existence of a key
+    _, prs := m["k2"]
+    fmt.Println("prs:", prs) // Output: prs: false
+
+    // Declare and initialize a map
+    n := map[string]int{"foo": 1, "bar": 2}
+    fmt.Println("map:", n) // Output: map: map[bar:2 foo:1]
+
+    // Compare two maps
+    n2 := map[string]int{"foo": 1, "bar": 2}
+    if maps.Equal(n, n2) {
+        fmt.Println("n == n2") // Output: n == n2
+    }
+}
