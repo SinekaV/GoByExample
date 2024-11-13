@@ -1,0 +1,45 @@
+package main
+
+import "fmt"
+
+func main() {
+    // Declare an array of 5 integers, default values are 0
+    var a [5]int
+    fmt.Println("emp:", a) // Output: emp: [0 0 0 0 0]
+
+    // Set a value at index 4
+    a[4] = 100
+    fmt.Println("set:", a)  // Output: set: [0 0 0 0 100]
+    fmt.Println("get:", a[4]) // Output: get: 100
+
+    // Length of array
+    fmt.Println("len:", len(a)) // Output: len: 5
+
+    // Declare and initialize an array in one line
+    b := [5]int{1, 2, 3, 4, 5}
+    fmt.Println("dcl:", b) // Output: dcl: [1 2 3 4 5]
+
+    // Compiler counts elements with ...
+    b = [...]int{1, 2, 3, 4, 5}
+    fmt.Println("dcl:", b) // Output: dcl: [1 2 3 4 5]
+
+    // Specifying index with :
+    b = [...]int{100, 3: 400, 500}
+    fmt.Println("idx:", b) // Output: idx: [100 0 0 400 500]
+
+    // Multi-dimensional array
+    var twoD [2][3]int
+    for i := 0; i < 2; i++ {
+        for j := 0; j < 3; j++ {
+            twoD[i][j] = i + j
+        }
+    }
+    fmt.Println("2d: ", twoD) // Output: 2d:  [[0 1 2] [1 2 3]]
+
+    // Initialize multi-dimensional array directly
+    twoD = [2][3]int{
+        {1, 2, 3},
+        {1, 2, 3},
+    }
+    fmt.Println("2d: ", twoD) // Output: 2d:  [[1 2 3] [1 2 3]]
+}
